@@ -1,0 +1,22 @@
+# Deta Space Configuration
+# https://deta.space
+
+appName: koutu-master
+runtime: python39
+primaryEndpoint: /api/remove-bg
+```
+
+Then create a file `Spacefile`:
+```yaml
+# Spacefile
+appName: koutu-master
+runtime: python39_3
+io:
+  public: true
+  handler: uvicorn
+  args:
+    - main:app
+port: 8000
+
+buildSteps:
+  - command: pip install -r requirements.txt
